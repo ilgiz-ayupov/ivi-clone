@@ -12,6 +12,13 @@ export const TRANSLATIONS = {
         },
         hero: {
             btn: '30 дней подписки бесплатно'
+        },
+        filmCard: {
+            status: {
+                subscribe: 'Подписка',
+                free: 'Бесплатно',
+                buy: 'Покупка'
+            }
         }
     },
     en: {
@@ -27,6 +34,13 @@ export const TRANSLATIONS = {
         },
         hero: {
             btn: '30 days free subscription'
+        },
+        filmCard: {
+            status: {
+                subscribe: 'Subscribe',
+                free: 'Free',
+                buy: 'Buy'
+            }
         }
     }
 }
