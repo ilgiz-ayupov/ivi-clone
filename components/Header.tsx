@@ -33,8 +33,8 @@ const Header: FC<HeaderProps> = ({ className }) => {
     return (
         <header className={className}>
             <nav>
-                <div className="container mx-auto py-3 px-5">
-                    <div className="flex justify-between items-center">
+                <div className="custom-container">
+                    <div className="flex justify-between items-center py-3">
                         <div className="flex items-center">
                             <Logo />
 

@@ -6,5 +6,20 @@ import type { BannerProps } from './BannerProps'
 import type { ProgressBarProps } from './ProgressBarProps'
 import type { FilmCardProps } from './FilmCardProps'
 import type { SectionHeadingProps } from './SectionHeadingProps'
+import type { FooterProps } from './FooterProps'
+import type { DividerProps } from './DividerProps'
+import type { FooterMobileProps } from './FooterMobileProps'
 
-export { LogoProps, HeaderProps, ButtonProps, NotificationProps, BannerProps, ProgressBarProps, FilmCardProps, SectionHeadingProps }
+export {
+    LogoProps,
+    HeaderProps,
+    ButtonProps,
+    NotificationProps,
+    BannerProps,
+    ProgressBarProps,
+    FilmCardProps,
+    SectionHeadingProps,
+    FooterProps,
+    DividerProps,
+    FooterMobileProps
+}

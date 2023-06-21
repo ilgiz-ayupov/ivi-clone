@@ -30,7 +30,7 @@ const FilmCard: FC<FilmCardProps> = ({ className, id, nameRu, nameEn, preview, r
         }
     }, [nameRu, nameEn])
 
-    const getFilmStatus = useCallback((status: FilmStatusType) => {
+    const getFilmStatus = useCallback((language: LanguageType, status: FilmStatusType) => {
         switch (status) {
             case 'subscribe':
                 return <p className="text-red-600 text-xs">{TRANSLATIONS[language].filmCard.status[status]}</p>
@@ -41,28 +41,28 @@ const FilmCard: FC<FilmCardProps> = ({ className, id, nameRu, nameEn, preview, r
             default:
                 return null
         }
-    }, [language])
+    }, [])
 
     return (
-        <div className={cn("group relative", className)}>
+        <div className={cn("group relative duration-500 active:scale-90", className)}>
             <Link className="absolute top-0 left-0 right-0 bottom-0 z-10" href={`/watch/${id}`} />
 
-            <div className="relative bg-purple-800 rounded-xl overflow-hidden duration-300 group-hover:-translate-y-1">
-                <Image className="w-full h-full object-cover" src={preview} alt={getFilmName(language)} width={172} height={264} />
+            <div className="relative bg-purple-800 rounded-xl overflow-hidden duration-300 group-hover:-translate-y-1 group-hover:scale-105">
+                <Image className="block w-full h-full object-cover" src={preview} alt={getFilmName(language)} width={172} height={264} />
 
                 <div className="absolute top-0 left-0 bottom-0 right-0 bg-[rgba(7,5,14,.8)] duration-200 opacity-0 group-hover:opacity-100">
                     <div className="absolute bottom-3 left-3 right-3">
                         <div className="flex items-center gap-x-2">
                             <div className="text-white text-xl font-bold">{rating.toFixed(1)}</div>
                             <div className="flex flex-col items-center justify-between w-7 h-4">
-                                <ProgressBar className="w-full h-[2px]" progress={43} />
-                                <ProgressBar className="w-full h-[2px]" progress={45} />
-                                <ProgressBar className="w-full h-[2px]" progress={54} />
-                                <ProgressBar className="w-full h-[2px]" progress={54} />
+                                <ProgressBar width="100%" height="2px" progress={43} />
+                                <ProgressBar width="100%" height="2px" progress={45} />
+                                <ProgressBar width="100%" height="2px" progress={54} />
+                                <ProgressBar width="100%" height="2px" progress={54} />
                             </div>
                         </div>
                         <div className="my-1 text-gray-400 text-xs">актёры</div>
-                        <ProgressBar className="w-3/4 h-1" progress={54} />
+                        <ProgressBar width="75%" height="4px" progress={54} />
                         <div className="mt-2 mb-1 text-gray-300 text-xs font-bold">{year}, {countries[0]}, {genres[0]}</div>
                         <div className="my-1 text-gray-300 text-xs font-bold">{duration}</div>
                     </div>
@@ -94,7 +94,7 @@ const FilmCard: FC<FilmCardProps> = ({ className, id, nameRu, nameEn, preview, r
 
             <div className="mt-2 text-white">
                 <h4 className="font-medium whitespace-nowrap max-w-[95%] overflow-hidden text-ellipsis">{getFilmName(language)}</h4>
-                {getFilmStatus(status)}
+                {getFilmStatus(language, status)}
             </div>
 
         </div>

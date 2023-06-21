@@ -1,13 +1,13 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 
-import { Header } from '@/components'
+import { Header, Footer, FooterMobile } from '@/components'
 import { LanguageProvider } from '@/context'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin', 'cyrillic'] })
 
 export const metadata = {
-  title: 'IVI',
+  title: 'ivi',
   description: 'Онлайн-кинотеатр Иви',
 }
 
@@ -17,13 +17,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <LanguageProvider>
+    <LanguageProvider>
+      <html lang="en">
+        <body className={inter.className}>
           <Header />
           {children}
-        </LanguageProvider>
-      </body>
-    </html>
+          <Footer className="hidden lg:block" />
+          <FooterMobile className="lg:hidden" />
+        </body>
+      </html>
+    </LanguageProvider>
   )
 }
