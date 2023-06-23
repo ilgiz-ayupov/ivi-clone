@@ -1,3 +1,7 @@
+import type { GenreSlugType } from './GenreType'
+import type { CollectionSlugType } from './CollectionType'
+import type { CountrySlugType } from './CountryType'
+
 export type FilmStatusType = 'subscribe' | 'free' | 'buy'
 
 export interface FilmType {
@@ -7,8 +11,9 @@ export interface FilmType {
     preview: string
     rating: number
     year: number
-    countries: string[]
-    genres: string[]
+    countries: CountrySlugType[]
+    genres: GenreSlugType[]
     duration: string
+    collections: CollectionSlugType[]
     status: FilmStatusType
 }

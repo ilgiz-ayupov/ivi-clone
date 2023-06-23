@@ -8,10 +8,11 @@ export const FILMS: FilmType[] = [
         preview: '/film-card-1.jpg',
         rating: 8.2,
         year: 2023,
-        countries: ['CША', 'Германия'],
-        genres: ['Боевики', 'Триллеры', 'Криминал'],
+        countries: ['usa', 'germany'],
+        genres: ['actions', 'trailers', 'criminal'],
         duration: '162 минуты',
-        status: 'subscribe'
+        status: 'subscribe',
+        collections: ['actions-trailers']
     },
     {
         id: 2,
@@ -20,10 +21,11 @@ export const FILMS: FilmType[] = [
         preview: '/film-card-2.jpg',
         rating: 8.0,
         year: 2012,
-        countries: ['Сша'],
-        genres: ['Фантастика', 'Боевики', 'Триллеры'],
+        countries: ['usa'],
+        genres: ['fantasy', 'actions', 'trailers'],
         duration: '131 минуты',
         status: 'subscribe',
+        collections: ['actions-trailers'],
     },
     {
         id: 3,
@@ -32,10 +34,11 @@ export const FILMS: FilmType[] = [
         preview: '/film-card-3.jpg',
         rating: 8.3,
         year: 2017,
-        countries: ['США'],
-        genres: ['Боевики', 'Триллеры', 'Криминал'],
+        countries: ['usa'],
+        genres: ['actions', 'trailers', 'criminal'],
         duration: '135 минуты',
-        status: 'buy'
+        status: 'buy',
+        collections: ['actions-trailers']
     },
     {
         id: 4,
@@ -44,10 +47,11 @@ export const FILMS: FilmType[] = [
         preview: '/film-card-4.jpg',
         rating: 8.3,
         year: 2018,
-        countries: ['США'],
-        genres: ['Фантастика', 'Боевики', 'Ужасы'],
+        countries: ['usa'],
+        genres: ['fantasy', 'actions', 'horrors'],
         duration: '112 минуты',
-        status: 'subscribe'
+        status: 'subscribe',
+        collections: ['actions-trailers']
     },
     {
         id: 5,
@@ -56,9 +60,10 @@ export const FILMS: FilmType[] = [
         preview: '/film-card-5.jpg',
         rating: 6.4,
         year: 2023,
-        countries: ['США'],
-        genres: ['Боевики', 'Триллеры', 'Зарубежные'],
+        countries: ['usa'],
+        genres: ['actions', 'trailers', 'foreign'],
         duration: '92 минуты',
-        status: 'subscribe'
+        status: 'subscribe',
+        collections: ['actions-trailers']
     }
 ] 
