@@ -4,19 +4,15 @@ export class CollectionsService {
 
     async getAll(): Promise<CollectionAPIType[]> {
         const response = await fetch('http://localhost:3000/api/collections')
-        if (response.ok) {
-            const collections = await response.json()
-            return collections
-        }
-        throw new Error('Failed request in CollectionsService.getAll')
+        if (!response.ok) throw new Error('Failed fetch all users')
+
+        return response.json()
     }
 
     async getOne(slug: CollectionSlugType): Promise<CollectionAPIType> {
         const response = await fetch(`http://localhost:3000/api/collections/${slug}`)
-        if (response.ok) {
-            const collection = await response.json()
-            return collection
-        }
-        throw new Error('Failed request in CollectionsService.getOne')
+        if (!response.ok) throw new Error('Failed fetch user')
+
+        return response.json()
     }
 }

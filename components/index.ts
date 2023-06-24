@@ -10,6 +10,7 @@ import SectionHeading from './SectionHeading'
 import Footer from './Footer'
 import Divider from './Divider'
 import FooterMobile from './FooterMobile'
+import CollectionSection from './CollectionSection'
 
 export {
     Header,
@@ -24,4 +25,5 @@ export {
     Footer,
     Divider,
     FooterMobile,
+    CollectionSection,
 }

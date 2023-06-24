@@ -9,6 +9,7 @@ import type { SectionHeadingProps } from './SectionHeadingProps'
 import type { FooterProps } from './FooterProps'
 import type { DividerProps } from './DividerProps'
 import type { FooterMobileProps } from './FooterMobileProps'
+import type { CollectionSectionProps } from './CollectionSectionProps'
 
 export {
     LogoProps,
@@ -21,5 +22,6 @@ export {
     SectionHeadingProps,
     FooterProps,
     DividerProps,
-    FooterMobileProps
+    FooterMobileProps,
+    CollectionSectionProps
 }

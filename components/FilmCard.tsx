@@ -13,7 +13,7 @@ import { AiOutlineEyeInvisible } from 'react-icons/ai'
 
 import { TRANSLATIONS } from '@/constants'
 import { useLanguage } from '@/hooks/useLanguage'
-import type { LanguageType, FilmStatusType } from '@/types'
+import type { LanguageType, FilmStatusType, CountryType, GenreType } from '@/types'
 import type { FilmCardProps } from '@/types/components'
 
 const FilmCard: FC<FilmCardProps> = ({ className, id, nameRu, nameEn, preview, rating, year, countries, genres, duration, status }) => {
@@ -43,6 +43,28 @@ const FilmCard: FC<FilmCardProps> = ({ className, id, nameRu, nameEn, preview, r
         }
     }, [])
 
+    const getCountryName = useCallback((language: LanguageType, country: CountryType) => {
+        switch (language) {
+            case 'ru':
+                return country.name_ru
+            case 'en':
+                return country.name_en
+            default:
+                return ''
+        }
+    }, [])
+
+    const getGenreName = useCallback((language: LanguageType, genre: GenreType) => {
+        switch (language) {
+            case 'ru':
+                return genre.name_ru
+            case 'en':
+                return genre.name_en
+            default:
+                return ''
+        }
+    }, [])
+
     return (
         <div className={cn("group relative duration-500 active:scale-90", className)}>
             <Link className="absolute top-0 left-0 right-0 bottom-0 z-10" href={`/watch/${id}`} />
@@ -63,7 +85,9 @@ const FilmCard: FC<FilmCardProps> = ({ className, id, nameRu, nameEn, preview, r
                         </div>
                         <div className="my-1 text-gray-400 text-xs">актёры</div>
                         <ProgressBar width="75%" height="4px" progress={54} />
-                        <div className="mt-2 mb-1 text-gray-300 text-xs font-bold">{year}, {countries[0]}, {genres[0]}</div>
+                        <div className="mt-2 mb-1 text-gray-300 text-xs font-bold">
+                            {year}, {getCountryName(language, countries[0])}, {getGenreName(language, genres[0])}
+                        </div>
                         <div className="my-1 text-gray-300 text-xs font-bold">{duration}</div>
                     </div>
                 </div>
