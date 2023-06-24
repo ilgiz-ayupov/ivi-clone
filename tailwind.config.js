@@ -6,6 +6,13 @@ module.exports = {
         './app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     theme: {
+        container: {
+            center: true,
+            padding: {
+                sm: '1rem',
+                md: '1.5rem',
+            },
+        },
         colors: {
             transparent: 'transparent',
             white: '#fff',

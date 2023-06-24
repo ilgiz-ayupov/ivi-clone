@@ -3,7 +3,8 @@
 import { FC, useCallback } from 'react'
 import Link from 'next/link'
 
-import Divider from './Divider'
+import { Divider } from '@/components/ui'
+
 import { AiOutlineMail, AiOutlinePhone } from 'react-icons/ai'
 import { LuMegaphoneOff } from 'react-icons/lu'
 
@@ -39,7 +40,7 @@ const Footer: FC<FooterProps> = ({ className }) => {
 
     return (
         <footer className={className}>
-            <div className="custom-container">
+            <div className="container">
                 <Divider height="1px" width="100%" />
                 <div className="grid grid-cols-4 justify-between items-start py-12">
                     {FOOTER_MENU.map((menu) => (

@@ -5,10 +5,7 @@ import Link from 'next/link'
 import { useCallback } from 'react'
 import { AiOutlineUser } from 'react-icons/ai'
 
-import Logo from './Logo'
-import Button from './Button'
-import Notification from './Notification'
-
+import { Logo, Button, Notification } from '@/components/ui/'
 import { HEADER_MENU, TRANSLATIONS } from '@/constants'
 import { useLanguage } from '@/hooks/useLanguage'
 import { capitalize } from '@/utils'
@@ -33,7 +30,7 @@ const Header: FC<HeaderProps> = ({ className }) => {
     return (
         <header className={className}>
             <nav>
-                <div className="custom-container">
+                <div className="container">
                     <div className="flex justify-between items-center py-3">
                         <div className="flex items-center">
                             <Logo />

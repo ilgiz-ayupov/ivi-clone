@@ -7,9 +7,3 @@
         background: #100e19;
     }
 }
-
-@layer utilities {
-    .custom-container {
-        @apply container mx-auto px-4 md:px-6;
-    }
-}

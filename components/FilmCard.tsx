@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import cn from 'classnames'
 
-import ProgressBar from './ProgressBar'
+import { ProgressBar } from '@/components/ui'
 
 import { FiStar, FiBookmark } from 'react-icons/fi'
 import { BsMagic } from 'react-icons/bs'
@@ -13,6 +13,7 @@ import { AiOutlineEyeInvisible } from 'react-icons/ai'
 
 import { TRANSLATIONS } from '@/constants'
 import { useLanguage } from '@/hooks/useLanguage'
+
 import type { LanguageType, FilmStatusType, CountryType, GenreType } from '@/types'
 import type { FilmCardProps } from '@/types/components'
 

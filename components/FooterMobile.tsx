@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, useCallback, cloneElement } from 'react'
+import { FC, useCallback } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 

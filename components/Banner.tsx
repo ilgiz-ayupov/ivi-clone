@@ -4,10 +4,10 @@ import { FC } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import Button from './Button'
-
+import { Button } from '@/components/ui'
 import { useLanguage } from '@/hooks/useLanguage'
 import { TRANSLATIONS } from '@/constants'
+
 import type { BannerProps } from '@/types/components'
 
 const Banner: FC<BannerProps> = ({ className, name, age, href, src, type }) => {
@@ -15,7 +15,7 @@ const Banner: FC<BannerProps> = ({ className, name, age, href, src, type }) => {
 
     return (
         <div className={className} title={name}>
-            <div className="custom-container">
+            <div className="container">
                 <Link className="relative block h-auto" href={href}>
                     <span
                         className="absolute top-3 left-3 md:top-5 md:left-5 text-[#c0c0c0] text-[10px] font-medium bg-[#858585] flex items-center justify-center w-6 h-4 rounded-sm"
