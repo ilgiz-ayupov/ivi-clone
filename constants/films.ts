@@ -12,7 +12,6 @@ export const FILMS: FilmType[] = [
         genres: ['actions', 'trailers', 'criminal'],
         duration: '162 минуты',
         status: 'subscribe',
-        collections: ['actions-trailers']
     },
     {
         id: 2,
@@ -25,7 +24,6 @@ export const FILMS: FilmType[] = [
         genres: ['fantasy', 'actions', 'trailers'],
         duration: '131 минуты',
         status: 'subscribe',
-        collections: ['actions-trailers'],
     },
     {
         id: 3,
@@ -38,7 +36,6 @@ export const FILMS: FilmType[] = [
         genres: ['actions', 'trailers', 'criminal'],
         duration: '135 минуты',
         status: 'buy',
-        collections: ['actions-trailers']
     },
     {
         id: 4,
@@ -51,7 +48,6 @@ export const FILMS: FilmType[] = [
         genres: ['fantasy', 'actions', 'horrors'],
         duration: '112 минуты',
         status: 'subscribe',
-        collections: ['actions-trailers']
     },
     {
         id: 5,
@@ -64,6 +60,5 @@ export const FILMS: FilmType[] = [
         genres: ['actions', 'trailers', 'foreign'],
         duration: '92 минуты',
         status: 'subscribe',
-        collections: ['actions-trailers']
     }
 ] 

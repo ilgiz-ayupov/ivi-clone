@@ -1,12 +1,13 @@
 import { NextResponse, NextRequest } from 'next/server'
 
 import { FILMS, COUNTRIES, GENRES } from '@/constants'
-import type { CountrySlugType, GenreSlugType } from '@/types'
+import type { FilmType, FilmAPIType, CountrySlugType, GenreSlugType } from '@/types'
 
-export async function GET(request: NextRequest) {
-    const { searchParams } = new URL(request.url)
+const getFilteredFilms = (films: FilmType[], url: string): FilmType[] => {
+    const { searchParams, search } = new URL(url)
+    if (!search) return films
 
-    const filteredFilms = FILMS.filter((film) => {
+    return films.filter((film) => {
         let filtered = [true]
 
         const searchedCountries = searchParams.get('countries')?.split(',')
@@ -26,23 +27,22 @@ export async function GET(request: NextRequest) {
 
         if (filtered.every((filter) => filter)) return film
     })
+}
 
-    const films = filteredFilms.map((film) => {
-        const countries = film.countries.map((countrySlug) => {
-            const foundCountry = COUNTRIES.find((country) => country.slug === countrySlug)
-            if (foundCountry) return foundCountry
-        })
+export async function GET(request: NextRequest) {
+    const filteredFilms = getFilteredFilms(FILMS, request.url)
 
-        const genres = film.genres.map((genreSlug) => {
-            const foundGenre = GENRES.find((genre) => genre.slug === genreSlug)
-            if (foundGenre) return foundGenre
-        })
+    const films: FilmAPIType[] = filteredFilms.map((film) => {
+        const countries = COUNTRIES.filter((country) => film.countries.includes(country.slug))
+        const genres = GENRES.filter((genre) => film.genres.includes(genre.slug))
 
-        return {
+        const filmAPI: FilmAPIType = {
             ...film,
             countries,
             genres,
         }
+
+        return filmAPI
     })
 
     return NextResponse.json(films)

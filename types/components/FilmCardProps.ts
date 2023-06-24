@@ -1,4 +1,6 @@
-import { FilmStatusType } from "../FilmType"
+import type { FilmStatusType } from '../FilmType'
+import type { CountryType } from '../CountryType'
+import type { GenreType } from '../GenreType'
 
 export interface FilmCardProps {
     id: number
@@ -7,8 +9,8 @@ export interface FilmCardProps {
     preview: string
     rating: number
     year: number
-    countries: string[]
-    genres: string[]
+    countries: CountryType[]
+    genres: GenreType[]
     duration: string
     status: FilmStatusType
     className?: string
