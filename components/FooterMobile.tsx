@@ -6,24 +6,12 @@ import cn from 'classnames'
 
 import { FOOTER_MOBILE_MENU } from '@/constants/footerMobileMenu'
 import { useLanguage } from '@/hooks/useLanguage'
-
-import type { LanguageType, FooterMobileItemType } from '@/types'
+import { getTranslatedItemLabel } from '@/utils/translations'
 import type { FooterMobileProps } from '@/types/components'
 
 
 const FooterMobile: FC<FooterMobileProps> = ({ className }) => {
     const { language } = useLanguage()
-
-    const getItemLabel = useCallback((lang: LanguageType, item: FooterMobileItemType) => {
-        switch (lang) {
-            case 'ru':
-                return item.label_ru
-            case 'en':
-                return item.label_en
-            default:
-                return ''
-        }
-    }, [])
 
 
     return (
@@ -34,7 +22,11 @@ const FooterMobile: FC<FooterMobileProps> = ({ className }) => {
                         <li className="flex-grow w-16 h-12 text-gray-400" key={item.href}>
                             <Link className="flex flex-col flex-grow items-center text-center duration-300 hover:text-white" href={item.href}>
                                 {item.icon}
-                                <span className="block mt-1 text-xs font-medium">{getItemLabel(language, item)}</span>
+                                <span
+                                    className="block mt-1 text-xs font-medium"
+                                >
+                                    {getTranslatedItemLabel(language, item)}
+                                </span>
                             </Link>
                         </li>
                     ))}

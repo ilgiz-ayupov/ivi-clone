@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, useCallback } from 'react'
+import { FC } from 'react'
 import Link from 'next/link'
 
 import { Divider } from '@/components/ui'
@@ -10,33 +10,11 @@ import { LuMegaphoneOff } from 'react-icons/lu'
 
 import { FOOTER_MENU } from '@/constants'
 import { useLanguage } from '@/hooks/useLanguage'
-import type { LanguageType, FooterMenuType, FooterItemType } from '@/types'
+import { getTranslatedMenuTitle, getTranslatedItemLabel } from '@/utils/translations'
 import type { FooterProps } from '@/types/components'
 
 const Footer: FC<FooterProps> = ({ className }) => {
     const { language } = useLanguage()
-
-    const getMenuTitle = useCallback((lang: LanguageType, menu: FooterMenuType) => {
-        switch (lang) {
-            case 'ru':
-                return menu.title_ru
-            case 'en':
-                return menu.title_en
-            default:
-                return ''
-        }
-    }, [])
-
-    const getItemLabel = useCallback((lang: LanguageType, item: FooterItemType) => {
-        switch (lang) {
-            case 'ru':
-                return item.label_ru
-            case 'en':
-                return item.label_en
-            default:
-                return ''
-        }
-    }, [])
 
     return (
         <footer className={className}>
@@ -45,11 +23,16 @@ const Footer: FC<FooterProps> = ({ className }) => {
                 <div className="grid grid-cols-4 justify-between items-start py-12">
                     {FOOTER_MENU.map((menu) => (
                         <div key={menu.title_en}>
-                            <h5 className="text-white font-bold">{getMenuTitle(language, menu)}</h5>
+                            <h5 className="text-white font-bold">{getTranslatedMenuTitle(language, menu)}</h5>
                             <ul className="mt-2 flex flex-col gap-1">
                                 {menu.items.map((item) => (
                                     <li key={item.href}>
-                                        <Link className="text-sm text-white/[48%] font-medium duration-300 hover:text-white" href={item.href}>{getItemLabel(language, item)}</Link>
+                                        <Link
+                                            className="text-sm text-white/[48%] font-medium duration-300 hover:text-white"
+                                            href={item.href}
+                                        >
+                                            {getTranslatedItemLabel(language, item)}
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>

@@ -1,7 +1,6 @@
-import { NextResponse, NextRequest } from 'next/server'
-
-import { FILMS, COUNTRIES, GENRES } from '@/constants'
+import { FILMS } from '@/constants'
 import type { FilmType, FilmAPIType, CountrySlugType, GenreSlugType } from '@/types'
+import { transformToFilmAPI } from '@/utils/api'
 
 const getFilteredFilms = (films: FilmType[], url: string): FilmType[] => {
     const { searchParams, search } = new URL(url)
@@ -29,21 +28,9 @@ const getFilteredFilms = (films: FilmType[], url: string): FilmType[] => {
     })
 }
 
-export async function GET(request: NextRequest) {
+export async function GET(request: Request) {
     const filteredFilms = getFilteredFilms(FILMS, request.url)
+    const films: FilmAPIType[] = filteredFilms.map(transformToFilmAPI)
 
-    const films: FilmAPIType[] = filteredFilms.map((film) => {
-        const countries = COUNTRIES.filter((country) => film.countries.includes(country.slug))
-        const genres = GENRES.filter((genre) => film.genres.includes(genre.slug))
-
-        const filmAPI: FilmAPIType = {
-            ...film,
-            countries,
-            genres,
-        }
-
-        return filmAPI
-    })
-
-    return NextResponse.json(films)
+    return new Response(JSON.stringify(films), { status: 200 })
 }

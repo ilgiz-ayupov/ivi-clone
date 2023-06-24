@@ -13,23 +13,13 @@ import { AiOutlineEyeInvisible } from 'react-icons/ai'
 
 import { TRANSLATIONS } from '@/constants'
 import { useLanguage } from '@/hooks/useLanguage'
+import { getTranslatedName } from '@/utils/translations'
 
-import type { LanguageType, FilmStatusType, CountryType, GenreType } from '@/types'
+import type { LanguageType, FilmStatusType } from '@/types'
 import type { FilmCardProps } from '@/types/components'
 
 const FilmCard: FC<FilmCardProps> = ({ className, id, nameRu, nameEn, preview, rating, year, countries, genres, duration, status }) => {
     const { language } = useLanguage()
-
-    const getFilmName = useCallback((lang: LanguageType) => {
-        switch (lang) {
-            case 'ru':
-                return nameRu
-            case 'en':
-                return nameEn
-            default:
-                return ''
-        }
-    }, [nameRu, nameEn])
 
     const getFilmStatus = useCallback((language: LanguageType, status: FilmStatusType) => {
         switch (status) {
@@ -44,34 +34,18 @@ const FilmCard: FC<FilmCardProps> = ({ className, id, nameRu, nameEn, preview, r
         }
     }, [])
 
-    const getCountryName = useCallback((language: LanguageType, country: CountryType) => {
-        switch (language) {
-            case 'ru':
-                return country.name_ru
-            case 'en':
-                return country.name_en
-            default:
-                return ''
-        }
-    }, [])
-
-    const getGenreName = useCallback((language: LanguageType, genre: GenreType) => {
-        switch (language) {
-            case 'ru':
-                return genre.name_ru
-            case 'en':
-                return genre.name_en
-            default:
-                return ''
-        }
-    }, [])
-
     return (
         <div className={cn("group relative duration-500 active:scale-90", className)}>
             <Link className="absolute top-0 left-0 right-0 bottom-0 z-10" href={`/watch/${id}`} />
 
             <div className="relative bg-purple-800 rounded-xl overflow-hidden duration-300 group-hover:-translate-y-1 group-hover:scale-105">
-                <Image className="block w-full h-full object-cover" src={preview} alt={getFilmName(language)} width={172} height={264} />
+                <Image
+                    className="block w-full h-full object-cover"
+                    src={preview}
+                    alt={getTranslatedName(language, { name_ru: nameRu, name_en: nameEn })}
+                    width={172}
+                    height={264}
+                />
 
                 <div className="absolute top-0 left-0 bottom-0 right-0 bg-[rgba(7,5,14,.8)] duration-200 opacity-0 group-hover:opacity-100">
                     <div className="absolute bottom-3 left-3 right-3">
@@ -87,7 +61,7 @@ const FilmCard: FC<FilmCardProps> = ({ className, id, nameRu, nameEn, preview, r
                         <div className="my-1 text-gray-400 text-xs">актёры</div>
                         <ProgressBar width="75%" height="4px" progress={54} />
                         <div className="mt-2 mb-1 text-gray-300 text-xs font-bold">
-                            {year}, {getCountryName(language, countries[0])}, {getGenreName(language, genres[0])}
+                            {year}, {getTranslatedName(language, countries[0])}, {getTranslatedName(language, genres[0])}
                         </div>
                         <div className="my-1 text-gray-300 text-xs font-bold">{duration}</div>
                     </div>
@@ -118,7 +92,11 @@ const FilmCard: FC<FilmCardProps> = ({ className, id, nameRu, nameEn, preview, r
             </ul>
 
             <div className="mt-2 text-white">
-                <h4 className="font-medium whitespace-nowrap max-w-[95%] overflow-hidden text-ellipsis">{getFilmName(language)}</h4>
+                <h4
+                    className="font-medium whitespace-nowrap max-w-[95%] overflow-hidden text-ellipsis"
+                >
+                    {getTranslatedName(language, { name_en: nameEn, name_ru: nameRu })}
+                </h4>
                 {getFilmStatus(language, status)}
             </div>
 

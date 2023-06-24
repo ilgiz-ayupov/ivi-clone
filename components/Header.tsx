@@ -9,23 +9,11 @@ import { Logo, Button, Notification } from '@/components/ui/'
 import { HEADER_MENU, TRANSLATIONS } from '@/constants'
 import { useLanguage } from '@/hooks/useLanguage'
 import { capitalize } from '@/utils'
-
-import type { HeaderMenuItemType, LanguageType } from '@/types'
+import { getTranslatedItemLabel } from '@/utils/translations'
 import type { HeaderProps } from '@/types/components'
 
 const Header: FC<HeaderProps> = ({ className }) => {
     const { language, setLanguage } = useLanguage()
-
-    const getMenuItemLabel = useCallback((lang: LanguageType, item: HeaderMenuItemType) => {
-        switch (lang) {
-            case 'ru':
-                return item.label_ru;
-            case 'en':
-                return item.label_en;
-            default:
-                return ''
-        }
-    }, [])
 
     return (
         <header className={className}>
@@ -38,8 +26,11 @@ const Header: FC<HeaderProps> = ({ className }) => {
                             <ul className="hidden md:flex md:gap-2 md:ml-4 lg:gap-5 lg:ml-8">
                                 {HEADER_MENU.map((item) => (
                                     <li key={item.href} data-testid="header-menu-item">
-                                        <Link className="text-white/50 font-medium duration-200 hover:text-white" href={item.href}>
-                                            {getMenuItemLabel(language, item)}
+                                        <Link
+                                            className="text-white/50 font-medium duration-200 hover:text-white"
+                                            href={item.href}
+                                        >
+                                            {getTranslatedItemLabel(language, item)}
                                         </Link>
                                     </li>
                                 ))}
