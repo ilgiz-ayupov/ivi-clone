@@ -1,7 +1,7 @@
-import { ReactNode } from 'react'
+import { ReactNode } from 'react';
 
 export interface SectionHeadingProps {
-    children: ReactNode
-    href: string
-    className?: string
+    children: ReactNode;
+    href: string;
+    className?: string;
 }

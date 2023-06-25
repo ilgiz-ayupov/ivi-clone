@@ -1,11 +1,11 @@
 export type FooterItemType = {
-    label_ru: string
-    label_en: string
-    href: string
-}
+    label_ru: string;
+    label_en: string;
+    href: string;
+};
 
 export interface FooterMenuType {
-    title_ru: string
-    title_en: string
-    items: FooterItemType[]
+    title_ru: string;
+    title_en: string;
+    items: FooterItemType[];
 }

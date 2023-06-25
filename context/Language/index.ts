@@ -1,4 +1,4 @@
-import { LanguageContext } from './LanguageContext'
-import { LanguageProvider } from './LanguageProvider'
+import { LanguageContext } from './LanguageContext';
+import { LanguageProvider } from './LanguageProvider';
 
-export { LanguageContext, LanguageProvider }
+export { LanguageContext, LanguageProvider };

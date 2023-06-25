@@ -1,5 +1,5 @@
 export interface DividerProps {
-    height: string
-    width: string
-    className?: string
+    height: string;
+    width: string;
+    className?: string;
 }

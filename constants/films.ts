@@ -1,4 +1,4 @@
-import type { FilmType } from '@/types'
+import type { FilmType } from '@/types';
 
 export const FILMS: FilmType[] = [
     {
@@ -11,7 +11,7 @@ export const FILMS: FilmType[] = [
         countries: ['usa', 'germany'],
         genres: ['actions', 'trailers', 'criminal'],
         duration: '162 минуты',
-        status: 'subscribe',
+        status: 'subscribe'
     },
     {
         id: 2,
@@ -23,7 +23,7 @@ export const FILMS: FilmType[] = [
         countries: ['usa'],
         genres: ['fantasy', 'actions', 'trailers'],
         duration: '131 минуты',
-        status: 'subscribe',
+        status: 'subscribe'
     },
     {
         id: 3,
@@ -35,7 +35,7 @@ export const FILMS: FilmType[] = [
         countries: ['usa'],
         genres: ['actions', 'trailers', 'criminal'],
         duration: '135 минуты',
-        status: 'buy',
+        status: 'buy'
     },
     {
         id: 4,
@@ -47,7 +47,7 @@ export const FILMS: FilmType[] = [
         countries: ['usa'],
         genres: ['fantasy', 'actions', 'horrors'],
         duration: '112 минуты',
-        status: 'subscribe',
+        status: 'subscribe'
     },
     {
         id: 5,
@@ -59,6 +59,6 @@ export const FILMS: FilmType[] = [
         countries: ['usa'],
         genres: ['actions', 'trailers', 'foreign'],
         duration: '92 минуты',
-        status: 'subscribe',
+        status: 'subscribe'
     }
-] 
+];

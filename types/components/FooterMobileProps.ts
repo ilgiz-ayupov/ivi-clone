@@ -1,3 +1,3 @@
 export interface FooterMobileProps {
-    className?: string
+    className?: string;
 }

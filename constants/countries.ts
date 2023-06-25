@@ -1,4 +1,4 @@
-import type { CountryType } from '@/types'
+import type { CountryType } from '@/types';
 
 export const COUNTRIES: CountryType[] = [
     {
@@ -13,4 +13,4 @@ export const COUNTRIES: CountryType[] = [
         name_ru: 'США',
         name_en: 'USA'
     }
-]
+];

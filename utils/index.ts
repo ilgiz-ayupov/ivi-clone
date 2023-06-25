@@ -1,3 +1,3 @@
-import { capitalize } from './capitalize'
+import { capitalize } from './capitalize';
 
-export { capitalize }
+export { capitalize };

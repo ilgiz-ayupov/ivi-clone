@@ -1,3 +1,3 @@
-import { LanguageContext, LanguageProvider } from "./Language/";
+import { LanguageContext, LanguageProvider } from './Language/';
 
-export { LanguageContext, LanguageProvider }
+export { LanguageContext, LanguageProvider };

@@ -1,21 +1,29 @@
-'use client'
+'use client';
 
-import { FC, useState, useMemo } from 'react'
+import React, { FC, useState, useMemo } from 'react';
 
-import { LanguageContext } from './LanguageContext'
+import { LanguageContext } from './LanguageContext';
 
-import type { Language } from '@/types'
-import type { LanguageContextType, LanguageProviderProps } from '@/types/context'
+import type { LanguageType } from '@/types';
+import type {
+    LanguageContextType,
+    LanguageProviderProps
+} from '@/types/context';
 
 export const LanguageProvider: FC<LanguageProviderProps> = ({ children }) => {
-    const [language, setLanguage] = useState<Language>('ru');
+    const [language, setLanguage] = useState<LanguageType>('ru');
 
-    const context: LanguageContextType = useMemo(() => ({
-        language,
-        setLanguage,
-    }), [language]);
+    const context: LanguageContextType = useMemo(
+        () => ({
+            language,
+            setLanguage
+        }),
+        [language]
+    );
 
-    return <LanguageContext.Provider value={context}>
-        {children}
-    </LanguageContext.Provider>
-}
+    return (
+        <LanguageContext.Provider value={context}>
+            {children}
+        </LanguageContext.Provider>
+    );
+};

@@ -1,3 +1,3 @@
 export interface FooterProps {
-    className?: string
+    className?: string;
 }

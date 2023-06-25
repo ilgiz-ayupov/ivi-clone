@@ -1,4 +1,4 @@
 export interface NotificationProps {
-    count: number
-    className?: string
+    count: number;
+    className?: string;
 }

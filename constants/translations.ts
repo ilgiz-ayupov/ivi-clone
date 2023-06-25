@@ -1,7 +1,7 @@
 export const TRANSLATIONS = {
     ru: {
         header: {
-            subscribeBtn: 'Смотреть 30 дней бесплатно',
+            subscribeBtn: 'Смотреть 30 дней бесплатно'
         },
         banner: {
             btn: {
@@ -43,4 +43,4 @@ export const TRANSLATIONS = {
             }
         }
     }
-}
+};

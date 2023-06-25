@@ -1,3 +1,3 @@
-import { transformToFilmAPI } from './transformToFilmAPI'
+import { transformToFilmAPI } from './transformToFilmAPI';
 
-export { transformToFilmAPI }
+export { transformToFilmAPI };

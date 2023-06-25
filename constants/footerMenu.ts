@@ -1,4 +1,4 @@
-import type { FooterMenuType } from '@/types'
+import type { FooterMenuType } from '@/types';
 
 export const FOOTER_MENU: FooterMenuType[] = [
     {
@@ -80,7 +80,7 @@ export const FOOTER_MENU: FooterMenuType[] = [
                 label_ru: 'Что посмотреть',
                 label_en: 'What to see',
                 href: '/good-movies'
-            },
+            }
         ]
     }
-]
+];

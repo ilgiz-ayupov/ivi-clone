@@ -1,13 +1,13 @@
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes } from 'react';
 
-export type ButtonType = 'button' | 'submit' | 'reset'
+export type ButtonType = 'button' | 'submit' | 'reset';
 
-export type ButtonSize = 'small' | 'normal'
+export type ButtonSize = 'small' | 'normal';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'primary-gradient'
+export type ButtonVariant = 'primary' | 'secondary' | 'primary-gradient';
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
-    type?: ButtonType
-    size?: ButtonSize
-    variant?: ButtonVariant
+    type?: ButtonType;
+    size?: ButtonSize;
+    variant?: ButtonVariant;
 }

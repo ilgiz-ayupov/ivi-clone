@@ -1,4 +1,4 @@
-import type { CollectionType } from '@/types'
+import type { CollectionType } from '@/types';
 
 export const COLLECTIONS: CollectionType[] = [
     {
@@ -18,5 +18,5 @@ export const COLLECTIONS: CollectionType[] = [
         name_en: 'Based on real events',
         slug: 'based-on-real-events',
         films: []
-    },
-]
+    }
+];

@@ -1,5 +1,5 @@
-import { BannerType } from '../BannerType'
+import { BannerType } from '../BannerType';
 
 export interface BannerProps extends BannerType {
-    className?: string
+    className?: string;
 }

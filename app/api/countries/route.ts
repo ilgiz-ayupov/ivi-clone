@@ -1,5 +1,5 @@
-import { COUNTRIES } from '@/constants'
+import { COUNTRIES } from '@/constants';
 
 export async function GET() {
-    return new Response(JSON.stringify(COUNTRIES))
+    return new Response(JSON.stringify(COUNTRIES));
 }

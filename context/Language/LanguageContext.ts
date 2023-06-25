@@ -1,10 +1,11 @@
-'use client'
+'use client';
 
-import { createContext } from 'react'
+import { createContext } from 'react';
 
-import type { LanguageContextType } from '@/types/context'
+import type { LanguageContextType } from '@/types/context';
 
 export const LanguageContext = createContext<LanguageContextType>({
     language: 'ru',
-    setLanguage: () => {},
-})
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    setLanguage: () => {}
+});
