@@ -12,9 +12,9 @@ describe('Header', () => {
     });
 
     it('should accept additional class', () => {
-        const { container } = render(<Header className="test-class" />);
+        const { container } = render(<Header className="hidden" />);
 
-        expect(container.firstElementChild).toHaveClass('test-class');
+        expect(container.firstElementChild).toHaveClass('hidden');
     });
 
     it('should render logo', () => {

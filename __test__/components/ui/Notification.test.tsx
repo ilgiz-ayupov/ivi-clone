@@ -9,6 +9,14 @@ describe('Notification', () => {
         expect(container.firstElementChild).toBeInTheDocument();
     });
 
+    it('should accept additional class', () => {
+        const { container } = render(
+            <Notification className="hidden" count={10} />
+        );
+
+        expect(container.firstElementChild).toHaveClass('hidden');
+    });
+
     it('should render notification icon', () => {
         const { getByTestId } = render(<Notification count={10} />);
 

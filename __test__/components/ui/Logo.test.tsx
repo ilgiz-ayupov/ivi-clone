@@ -10,9 +10,9 @@ describe('Logo', () => {
     });
 
     it('should accept additional class', () => {
-        const { container } = render(<Logo className="test-class" />);
+        const { container } = render(<Logo className="hidden" />);
 
-        expect(container.firstElementChild).toHaveClass('test-class');
+        expect(container.firstElementChild).toHaveClass('hidden');
     });
 
     it('the link should lead to the home page', () => {
@@ -22,10 +22,10 @@ describe('Logo', () => {
         expect(link).toHaveAttribute('href', '/');
     });
 
-    it('should render logo image', () => {
+    it('should render image inside', () => {
         const { getByRole } = render(<Logo />);
 
-        const logo = getByRole('img');
-        expect(logo).toBeInTheDocument();
+        const image = getByRole('img');
+        expect(image).toBeInTheDocument();
     });
 });

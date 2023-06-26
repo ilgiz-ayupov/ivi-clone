@@ -17,13 +17,17 @@ const SectionHeading: FC<SectionHeadingProps> = ({
                 'text-xl font-bold text-white md:text-2xl',
                 className
             )}>
-            <Link
-                className="group inline-flex items-center leading-none"
-                href={href}>
-                {children}
+            {href ? (
+                <Link
+                    className="group inline-flex items-center leading-none"
+                    href={href}>
+                    {children}
 
-                <MdKeyboardArrowRight className="h-7 w-7 duration-500 group-hover:translate-x-1.5" />
-            </Link>
+                    <MdKeyboardArrowRight className="h-7 w-7 duration-500 group-hover:translate-x-1.5" />
+                </Link>
+            ) : (
+                children
+            )}
         </h2>
     );
 };

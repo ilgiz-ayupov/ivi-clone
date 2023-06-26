@@ -19,6 +19,12 @@ describe('Banner', () => {
         expect(container.firstElementChild).toBeInTheDocument();
     });
 
+    it('should accept additional class', () => {
+        const { container } = render(<Banner className="hidden" {...banner} />);
+
+        expect(container.firstElementChild).toHaveClass('hidden');
+    });
+
     it('the link should lead to the film page', () => {
         const { getByRole } = render(<Banner {...banner} />);
 
