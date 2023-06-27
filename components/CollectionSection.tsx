@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 
 import FilmCard from './FilmCard';
 import { SectionHeading } from '@/components/ui';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/hooks';
 import { getTranslatedName } from '@/utils/translations';
 
 import type { CollectionSectionProps } from '@/types/components';

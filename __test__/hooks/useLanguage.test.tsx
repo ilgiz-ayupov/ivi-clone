@@ -1,6 +1,6 @@
 import React from 'react';
 import { renderHook, act } from '@testing-library/react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/hooks';
 import { LanguageProvider } from '@/context';
 
 describe('useLanguage', () => {

@@ -1,8 +1,10 @@
+'use client';
+
 import React from 'react';
 import './globals.css';
 import { Inter } from 'next/font/google';
 
-import { Header, Footer, FooterMobile } from '@/components';
+import { Header, Footer } from '@/components';
 import { LanguageProvider } from '@/context';
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'] });
@@ -23,8 +25,8 @@ export default function RootLayout({
                 <body className={inter.className}>
                     <Header />
                     {children}
-                    <Footer className="hidden lg:block" />
-                    <FooterMobile className="lg:hidden" />
+
+                    <Footer />
                 </body>
             </html>
         </LanguageProvider>

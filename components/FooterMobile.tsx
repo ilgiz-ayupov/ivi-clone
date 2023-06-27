@@ -4,8 +4,8 @@ import React, { FC } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 
-import { FOOTER_MOBILE_MENU } from '@/constants/footerMobileMenu';
-import { useLanguage } from '@/hooks/useLanguage';
+import { FOOTER_MOBILE_MENU } from '@/constants';
+import { useLanguage } from '@/hooks';
 import { getTranslatedItemLabel } from '@/utils/translations';
 import type { FooterMobileProps } from '@/types/components';
 
@@ -18,7 +18,7 @@ const FooterMobile: FC<FooterMobileProps> = ({ className }) => {
                 'fixed bottom-0 left-0 right-0 z-50 bg-purple-800/90',
                 className
             )}>
-            <div className="custom-container">
+            <div className="container">
                 <ul className="mx-auto flex h-14 w-full items-center justify-between overflow-hidden md:max-w-[80%]">
                     {FOOTER_MOBILE_MENU.map(item => (
                         <li

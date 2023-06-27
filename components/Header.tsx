@@ -6,7 +6,7 @@ import { AiOutlineUser } from 'react-icons/ai';
 
 import { Logo, Button, Notification } from '@/components/ui/';
 import { HEADER_MENU, TRANSLATIONS } from '@/constants';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/hooks';
 import { capitalize } from '@/utils';
 import { getTranslatedItemLabel } from '@/utils/translations';
 import type { HeaderProps } from '@/types/components';

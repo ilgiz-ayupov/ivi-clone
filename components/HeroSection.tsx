@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Banner from './Banner';
 import { Button } from '@/components/ui';
 import { TRANSLATIONS } from '@/constants';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/hooks';
 
 const HeroSection: FC = () => {
     const { language } = useLanguage();

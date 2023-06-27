@@ -12,7 +12,7 @@ import { BsMagic } from 'react-icons/bs';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 
 import { TRANSLATIONS } from '@/constants';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/hooks';
 import { getTranslatedName } from '@/utils/translations';
 
 import type { LanguageType, FilmStatusType } from '@/types';
@@ -128,7 +128,7 @@ const FilmCard: FC<FilmCardProps> = ({
                     <Link
                         className="inline-block"
                         title="Добавить в закладку"
-                        href="/add-bookmark/1">
+                        href={`/add-bookmark/${id}`}>
                         <FiBookmark className="h-6 w-6" />
                     </Link>
                 </li>
@@ -136,7 +136,7 @@ const FilmCard: FC<FilmCardProps> = ({
                     <Link
                         className="inline-block"
                         title="Похожее"
-                        href="/similar/1">
+                        href={`/similar/${id}`}>
                         <BsMagic className="h-6 w-6" />
                     </Link>
                 </li>
@@ -144,7 +144,7 @@ const FilmCard: FC<FilmCardProps> = ({
                     <Link
                         className="inline-block"
                         title="Оценить"
-                        href="/evaluate/1">
+                        href={`/evaluate/${id}`}>
                         <FiStar className="h-6 w-6" />
                     </Link>
                 </li>
@@ -152,7 +152,7 @@ const FilmCard: FC<FilmCardProps> = ({
                     <Link
                         className="inline-block"
                         title="Не нравится такое"
-                        href="/ban/1">
+                        href={`/ban/${id}`}>
                         <AiOutlineEyeInvisible className="h-6 w-6" />
                     </Link>
                 </li>
