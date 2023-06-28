@@ -6,6 +6,7 @@ import Footer from './Footer';
 import FooterDesktop from './FooterDesktop';
 import FooterMobile from './FooterMobile';
 import CollectionSection from './CollectionSection';
+import FilmStatus from './FilmStatus';
 
 export {
     Header,
@@ -15,5 +16,6 @@ export {
     Footer,
     FooterDesktop,
     FooterMobile,
-    CollectionSection
+    CollectionSection,
+    FilmStatus
 };

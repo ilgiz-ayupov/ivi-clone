@@ -24,10 +24,14 @@ describe('Header', () => {
     });
 
     it('should render header menu items', () => {
-        const { getAllByTestId } = render(<Header />);
+        const { getByRole } = render(<Header />);
 
-        const headerMenuItems = getAllByTestId('header-menu-item');
-        expect(headerMenuItems.length).toBe(HEADER_MENU.length);
+        HEADER_MENU.forEach(item => {
+            const linkMenu = getByRole('link', { name: item.label_ru });
+
+            expect(linkMenu).toBeInTheDocument();
+            expect(linkMenu).toHaveAttribute('href', item.href);
+        });
     });
 
     it('should render notification button', () => {

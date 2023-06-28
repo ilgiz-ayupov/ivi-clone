@@ -1,21 +1,21 @@
 'use client';
 
-import React, { FC, useCallback } from 'react';
+import React, { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import cn from 'classnames';
 
 import { ProgressBar } from '@/components/ui';
+import FilmStatus from './FilmStatus';
 
 import { FiStar, FiBookmark } from 'react-icons/fi';
 import { BsMagic } from 'react-icons/bs';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 
-import { TRANSLATIONS } from '@/constants';
 import { useLanguage } from '@/hooks';
 import { getTranslatedName } from '@/utils/translations';
 
-import type { LanguageType, FilmStatusType } from '@/types';
+import type { LanguageType } from '@/types';
 import type { FilmCardProps } from '@/types/components';
 
 const FilmCard: FC<FilmCardProps> = ({
@@ -33,33 +33,19 @@ const FilmCard: FC<FilmCardProps> = ({
 }) => {
     const { language } = useLanguage();
 
-    const getFilmStatus = useCallback(
-        (language: LanguageType, status: FilmStatusType) => {
-            switch (status) {
-                case 'subscribe':
-                    return (
-                        <p className="text-xs text-red-600">
-                            {TRANSLATIONS[language].filmCard.status[status]}
-                        </p>
-                    );
-                case 'free':
-                    return (
-                        <p className="text-xs text-gray-400">
-                            {TRANSLATIONS[language].filmCard.status[status]}
-                        </p>
-                    );
-                case 'buy':
-                    return (
-                        <p className="text-xs text-blue-400">
-                            {TRANSLATIONS[language].filmCard.status[status]}
-                        </p>
-                    );
-                default:
-                    return null;
-            }
-        },
-        []
-    );
+    const getShortInfo = (lang: LanguageType) => {
+        const info: (string | number)[] = [year];
+
+        if (countries[0]) {
+            info.push(getTranslatedName(lang, countries[0]));
+        }
+
+        if (genres[0]) {
+            info.push(getTranslatedName(lang, genres[0]));
+        }
+
+        return info.join(', ');
+    };
 
     return (
         <div
@@ -67,7 +53,14 @@ const FilmCard: FC<FilmCardProps> = ({
                 'group relative duration-500 active:scale-90',
                 className
             )}>
-            <Link className="absolute inset-0 z-10" href={`/watch/${id}`} />
+            <Link
+                className="absolute inset-0 z-10"
+                href={`/watch/${id}`}
+                title={`Ссылка на фильм: ${getTranslatedName(language, {
+                    name_ru: nameRu,
+                    name_en: nameEn
+                })}`}
+            />
 
             <div className="relative overflow-hidden rounded-xl bg-purple-800 duration-300 group-hover:-translate-y-1 group-hover:scale-105">
                 <Image
@@ -113,8 +106,7 @@ const FilmCard: FC<FilmCardProps> = ({
                         <div className="my-1 text-xs text-gray-400">актёры</div>
                         <ProgressBar width="75%" height="4px" progress={54} />
                         <div className="mb-1 mt-2 text-xs font-bold text-gray-300">
-                            {year}, {getTranslatedName(language, countries[0])},{' '}
-                            {getTranslatedName(language, genres[0])}
+                            {getShortInfo(language)}
                         </div>
                         <div className="my-1 text-xs font-bold text-gray-300">
                             {duration}
@@ -165,7 +157,7 @@ const FilmCard: FC<FilmCardProps> = ({
                         name_ru: nameRu
                     })}
                 </h4>
-                {getFilmStatus(language, status)}
+                <FilmStatus className="mt-0.5" status={status} />
             </div>
         </div>
     );

@@ -8,11 +8,15 @@ import { Button } from '@/components/ui';
 import { TRANSLATIONS } from '@/constants';
 import { useLanguage } from '@/hooks';
 
-const HeroSection: FC = () => {
+interface HeroSectionProps {
+    className?: string;
+}
+
+const HeroSection: FC<HeroSectionProps> = ({ className }) => {
     const { language } = useLanguage();
 
     return (
-        <div id="hero">
+        <div id="hero" className={className}>
             <Banner
                 src="/banner-1.jpg"
                 name="Джон Уик 4"
