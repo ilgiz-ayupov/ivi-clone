@@ -1,4 +1,4 @@
-import { COUNTRIES } from '@/constants';
+import { COUNTRIES } from '@/lib/constants';
 
 export async function GET(
     request: Request,

@@ -1,14 +1,14 @@
-import { transformToFilmAPI } from '@/utils/api';
-import { COLLECTIONS, FILMS } from '@/constants';
+import { COLLECTIONS, FILMS } from '@/lib/constants';
+import { transformToFilm } from '@/lib/utils/api';
 
-import type { CollectionAPIType, FilmAPIType } from '@/types';
+import type { CollectionType } from '@/types';
 
 export async function GET() {
-    const collections: CollectionAPIType[] = COLLECTIONS.map(collection => {
+    const collections: CollectionType[] = COLLECTIONS.map(collection => {
         const filteredFilms = FILMS.filter(film =>
             collection.films.includes(film.id)
         );
-        const films: FilmAPIType[] = filteredFilms.map(transformToFilmAPI);
+        const films = filteredFilms.map(transformToFilm);
 
         return {
             ...collection,

@@ -1,5 +1,5 @@
-import { FILMS } from '@/constants';
-import { transformToFilmAPI } from '@/utils/api';
+import { FILMS } from '@/lib/constants';
+import { transformToFilm } from '@/lib/utils/api';
 
 export async function GET(
     request: Request,
@@ -13,6 +13,6 @@ export async function GET(
         );
     }
 
-    const filmAPI = transformToFilmAPI(foundFilm);
+    const filmAPI = transformToFilm(foundFilm);
     return new Response(JSON.stringify(filmAPI), { status: 200 });
 }

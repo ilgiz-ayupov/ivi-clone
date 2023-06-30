@@ -1,4 +1,4 @@
-import { GENRES } from '@/constants';
+import { GENRES } from '@/lib/constants';
 
 export async function GET(
     request: Request,

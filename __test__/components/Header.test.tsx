@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Header } from '@/components';
+import { Header } from '@/lib/components';
 
-import { HEADER_MENU } from '@/constants';
+import { HEADER_MENU } from '@/lib/constants';
 
 describe('Header', () => {
     it('should render component', () => {

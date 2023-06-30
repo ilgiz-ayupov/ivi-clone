@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { HeroSection } from '@/components';
+import { HeroSection } from '@/lib/components';
 
 describe('HeroSection', () => {
     it('should render component', () => {

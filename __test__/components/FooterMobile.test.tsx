@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { FooterMobile } from '@/components';
+import { FooterMobile } from '@/lib/components';
 
-import { FOOTER_MOBILE_MENU } from '@/constants';
+import { FOOTER_MOBILE_MENU } from '@/lib/constants';
 
 describe('FooterMobile', () => {
     it('should render component', () => {

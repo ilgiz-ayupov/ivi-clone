@@ -1,13 +1,9 @@
-import { FILMS } from '@/constants';
-import type {
-    FilmType,
-    FilmAPIType,
-    CountrySlugType,
-    GenreSlugType
-} from '@/types';
-import { transformToFilmAPI } from '@/utils/api';
+import { FILMS } from '@/lib/constants';
+import { transformToFilm } from '@/lib/utils/api';
 
-const getFilteredFilms = (films: FilmType[], url: string): FilmType[] => {
+import type { FilmDBType } from '@/types';
+
+const getFilteredFilms = (films: FilmDBType[], url: string): FilmDBType[] => {
     const { searchParams, search } = new URL(url);
     if (!search) return films;
 
@@ -20,7 +16,7 @@ const getFilteredFilms = (films: FilmType[], url: string): FilmType[] => {
         if (searchedCountries) {
             filtered.push(
                 searchedCountries.every(searchedCountry =>
-                    film.countries.includes(searchedCountry as CountrySlugType)
+                    film.countries.includes(searchedCountry)
                 )
             );
         }
@@ -28,7 +24,7 @@ const getFilteredFilms = (films: FilmType[], url: string): FilmType[] => {
         if (searchedGenres) {
             filtered.push(
                 searchedGenres.every(searchedGenre =>
-                    film.genres.includes(searchedGenre as GenreSlugType)
+                    film.genres.includes(searchedGenre)
                 )
             );
         }
@@ -39,7 +35,7 @@ const getFilteredFilms = (films: FilmType[], url: string): FilmType[] => {
 
 export async function GET(request: Request) {
     const filteredFilms = getFilteredFilms(FILMS, request.url);
-    const films: FilmAPIType[] = filteredFilms.map(transformToFilmAPI);
+    const films = filteredFilms.map(transformToFilm);
 
     return new Response(JSON.stringify(films), { status: 200 });
 }

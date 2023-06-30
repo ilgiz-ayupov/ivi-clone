@@ -1,19 +1,20 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { CollectionSection } from '@/components';
+import { CollectionSection } from '@/lib/components';
 
-import type { CollectionAPIType } from '@/types';
+import type { CollectionType } from '@/types';
 
 describe('CollectionSection', () => {
-    const collection: CollectionAPIType = {
+    const collection: CollectionType = {
+        id: 1,
         slug: 'actions-trailers',
         name_ru: 'Боевики-трейлеры',
         name_en: 'Actions-trailers',
         films: [
             {
                 id: 1,
-                nameRu: 'Джон Уик 4',
-                nameEn: 'John Wick 4',
+                name_ru: 'Джон Уик 4',
+                name_en: 'John Wick 4',
                 preview: '/film-card-1.jpg',
                 rating: 8.2,
                 year: 2023,
@@ -56,7 +57,7 @@ describe('CollectionSection', () => {
         );
 
         collection.films.forEach(film => {
-            const card = getByText(film.nameRu);
+            const card = getByText(film.name_ru);
             expect(card).toBeInTheDocument();
         });
     });

@@ -1,11 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { FilmCard } from '@/components';
-
-import type { FilmCardProps } from '@/types/components';
+import { FilmCard } from '@/lib/components';
 
 describe('FilmCard', () => {
-    const props: FilmCardProps = {
+    const props = {
         id: 1,
         nameRu: 'Джон Уик 4',
         nameEn: 'John Wick 4',

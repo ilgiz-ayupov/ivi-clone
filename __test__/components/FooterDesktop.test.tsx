@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { FooterDesktop } from '@/components';
+import { FooterDesktop } from '@/lib/components';
 
-import { FOOTER_MENU } from '@/constants';
+import { FOOTER_MENU } from '@/lib/constants';
 
 describe('FooterDesktop', () => {
     it('should render component', () => {

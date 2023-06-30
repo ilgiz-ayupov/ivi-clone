@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { FilmStatus } from '@/components';
+import { FilmStatus } from '@/lib/components';
 
 describe('FilmStatus', () => {
     it('should render component', () => {
